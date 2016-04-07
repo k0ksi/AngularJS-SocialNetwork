@@ -9,8 +9,9 @@ angular.module('socialNetwork.home', [
     }])
     .controller('HomeController', [
         '$scope',
+        '$location',
         'authentication',
-        function ($scope, authentication) {
+        function ($scope, $location, authentication) {
         $scope.login = function (user) {
             authentication.loginUser(user)
                 .then(function (loggedInUser) {

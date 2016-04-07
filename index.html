@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="app/app.css">
         <!--<script src="components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script> -->
     </head>
-    <body>
+    <body ng-controller="MainController">
         <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -23,10 +23,22 @@
             </button>
             </div>
             <div class="navbar-collapse collapse" id="navbar-main">
-            <ul class="nav navbar-nav">                
+            <ul ng-if="isAuthenticated" class="nav navbar-nav">
                 <li>
-                <a href="#/">Home</a>
-                </li>             
+                    <a href="#/newsFeed">News Feed</a>
+                </li>
+                <li>
+                    <a href="#/friendRequests">Friend Requests</a>
+                </li>
+                <li>
+                    <a href="#/settings">Settings</a>
+                </li>
+                <li>
+                    <a href="#/changePassword">Change Password</a>
+                </li>
+                <li>
+                    <a href="#/logout">Logout</a>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -46,6 +58,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.js"></script>
         <script src="app/app.js"></script>
         <script src="app/home/HomeController.js"></script>
+        <script src="app/common/MainController.js"></script>
         <script src="app/users/authentication.js"></script>
+        <script src="app/users/identity.js"></script>
+        <script src="app/news-feed/NewsFeedController.js"></script>
     </body>
 </html>
