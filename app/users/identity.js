@@ -9,7 +9,7 @@ angular.module('socialNetwork.users.identity', [])
 
             var currentUser = undefined;
 
-            // $http.defaults.headers.common.Authorization = 'Bearer ' + accessToken;
+            /*$http.defaults.headers.common.Authorization = 'Bearer ' + accessToken;*/
 
             $http.get(BASE_URL + 'me')
                 .then(function (response) {
