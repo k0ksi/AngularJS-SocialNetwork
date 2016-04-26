@@ -10,9 +10,9 @@ angular.module('socialNetwork', [
       'socialNetwork.users.identity'
     ]).
     config(['$routeProvider', function($routeProvider) {
-      $routeProvider.otherwise({redirectTo: '/'});
+        $routeProvider.otherwise({redirectTo: '/'});
     }])
-    .run([function () {
-        
+    .run('authentication', [function (authentication) {
+        authentication.refreshCookie();
     }])
     .constant('BASE_URL', 'http://softuni-social-network.azurewebsites.net/api/');
