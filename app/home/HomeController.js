@@ -12,18 +12,22 @@ angular.module('socialNetwork.home', [
         '$location',
         'authentication',
         function ($scope, $location, authentication) {
-        $scope.login = function (user) {
-            authentication.loginUser(user)
-                .then(function (loggedInUser) {
-                    console.log(loggedInUser);
-                    $location.path('/newsFeed');
-                });
-        };
+            if(authentication.isAuthenticated()) {
+                $location.path('/newsFeed');
+            }
 
-        $scope.register = function (user) {
-            authentication.registerUser(user)
-                .then(function (registeredUser) {
-                    console.log(registeredUser);
-                });
-        };
+            $scope.login = function (user) {
+                authentication.loginUser(user)
+                    .then(function (loggedInUser) {
+                        console.log(loggedInUser);
+                        $location.path('/newsFeed');
+                    });
+            };
+
+            $scope.register = function (user) {
+                authentication.registerUser(user)
+                    .then(function (registeredUser) {
+                        console.log(registeredUser);
+                    });
+            };
     }]);

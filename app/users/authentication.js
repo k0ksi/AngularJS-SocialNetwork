@@ -67,6 +67,7 @@ angular.module('socialNetwork.users.authentication', [])
             function refreshCookie() {
                 if(isAuthenticated()) {
                     $http.defaults.headers.common.Authorization = 'Bearer ' + $cookies.get(AUTHENTICATION_COOKIE_KEY);
+                    identity.requestUserProfile();
                 }
             }
 
